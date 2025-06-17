@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWICE Discography</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Nunito:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --twice-pink: #FF9EB5;
+      --twice-apricot: #FFB6C1;
+      --twice-purple: #C9A0DC;
+      --twice-blue: #87CEEB;
+      --twice-yellow: #FFD700;
+      --twice-red: #FF6B6B;
+      --twice-green: #7EC8A0;
+      --twice-orange: #FFA07A;
+      --twice-violet: #B19CD9;
+      --twice-teal: #48D1CC;
+      --dark: #2a2a3c;
+      --light: #fff;
+      --gradient: linear-gradient(45deg, var(--twice-pink), var(--twice-purple));
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #fff5f9, #f8f8ff);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--twice-pink);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .logo i {
+      margin-right: 8px;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--twice-pink);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--twice-pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(45deg, #ffcce0, #c2e9fb);
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: 100% 100%;
+    }
+
+    .hero-content {
+      z-index: 10;
+      max-width: 800px;
+      margin-top: 5rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        margin-top: 7rem;
+      }
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 1.5rem;
+      border-radius: 15px;
+      min-width: 120px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .stat-item {
+        min-height: 70px;
+        padding: 1rem;
+      }
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--twice-pink);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .discography-section {
+      padding: 5rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--twice-pink);
+      position: relative;
+      display: inline-block;
+    }
+
+
+
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+      padding: 0 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .spotify-embed-container {
+      flex: 1 1 350px;
+      max-width: 350px;
+      min-width: 260px;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+
+    .spotify-embed-container:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(255, 158, 181, 0.2);
+    }
+
+    .spotify-embed-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg,
+          var(--twice-pink),
+          var(--twice-purple),
+          var(--twice-blue));
+    }
+
+    .embed-wrapper {
+      width: 100%;
+      padding: 25px 25px 15px;
+    }
+
+    .album-info {
+      padding: 0 25px 25px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), white 60%);
+    }
+
+    .album-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(45deg, var(--twice-pink), var(--twice-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .album-type {
+      color: var(--twice-purple);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(201, 160, 220, 0.15);
+      border-radius: 20px;
+    }
+
+    .album-details {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .album-details span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .album-details i {
+      color: var(--twice-pink);
+      font-size: 0.9rem;
+    }
+
+    .highlight-track {
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: var(--twice-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .highlight-track::before {
+      content: '✨';
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .album-grid {
+        grid-template-columns: 1fr;
+        padding: 0 3%;
+      }
+
+      .embed-wrapper {
+        padding: 15px;
+      }
+
+      .album-info {
+        padding: 0 15px 20px;
+      }
+
+      .album-info h3 {
+        font-size: 1.6rem;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+    }
+
+    /* Redesigned Spotlight Section */
+    .spotlight {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #f9f0ff, #fff0f5);
+      margin-top: 3rem;
+    }
+
+    .spotlight-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      display: flex;
+    }
+
+    .album-display {
+      flex: 1;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .album-display::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .album-display::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .spotlight-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--twice-pink);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .album-cover-large {
+      width: 280px;
+      height: 280px;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .album-info-spotlight {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .spotlight-title {
+      font-size: 2.5rem;
+      color: var(--twice-pink);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .album-subtitle {
+      font-size: 1.2rem;
+      color: var(--twice-purple);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .spotlight-description {
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .achievement {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 158, 181, 0.08);
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--twice-pink);
+    }
+
+    .achievement i {
+      font-size: 2rem;
+      color: var(--twice-pink);
+      margin-right: 1rem;
+      min-width: 40px;
+    }
+
+    .achievement-text h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-text p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .spotlight-cta {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a.active {
+      color: var(--twice-pink);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .cta-primary {
+      background: var(--twice-pink);
+      color: white;
+    }
+
+    .cta-primary:hover {
+      background: var(--twice-purple);
+      transform: translateY(-3px);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid var(--twice-pink);
+      color: var(--twice-pink);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(255, 158, 181, 0.1);
+    }
+
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 5%;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--twice-pink);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: #bbb;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--twice-pink);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--twice-pink);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 992px) {
+      .spotlight-container {
+        flex-direction: column;
+      }
+
+      .album-display {
+        padding: 2rem;
+      }
+
+      .album-info-spotlight {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .achievements {
+        grid-template-columns: 1fr;
+      }
+
+      .spotlight-cta {
+        flex-direction: column;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+    }
+
+    .spotify-embed-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="./images/twice-logo.png" alt="TWICE Logo" style="height: 45px; vertical-align: middle;">
+        TWICE </a>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./meet-members.html">Members</a></li>
+        <li><a href="./discography.html" class="active">Music</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="https://twice.jype.com/Default/NoticeList" target="_blank">Notice</a></li>
+        <li><a href="https://twiceshop.com/?srsltid=AfmBOoqTMzqkKLvop_Xm_7tQmMkxGtJkuSpqqtOxCkkYXLDkxY2Kx0bJ"
+            target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>TWICE DISCOGRAPHY</h1>
+      <p>Explore the musical journey of South Korea's global sensation</p>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Korean EPs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Korean Albums</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Japanese Albums</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">122</div>
+          <div class="stat-label">Music Show Wins</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="discography-section">
+    <div class="section-title">
+      <h2>Album Collection</h2>
+      <p>From debut to latest releases</p>
+    </div>
+
+
+    <div class="spotify-embed-row">
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/5YamV8eSywqu7g1Ms4GoqA?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Formula of Love: O+T= < 3 </h3>
+              <div class="album-type">Studio Album</div>
+              <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2021-11-12</span><span><i
+                    class="fas fa-music"></i> 16 Tracks</span></div>
+              <div class="highlight-track">Highlight: SCIENTIST</div>
+        </div>
+      </div>
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/33jypnU7WULxPaVrjj4RXH?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <div class="album-info">
+            <h3>Eyes Wide Open</h3>
+            <div class="album-type">Studio Album</div>
+            <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2020-10-26</span><span><i
+                  class="fas fa-music"></i> 13 Tracks</span></div>
+            <div class="highlight-track">Highlight: I CAN'T STOP ME</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/3hJXmK5gWN9P6jtZL0Lr2y?utm_source=generator&theme=0" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>twicetagram</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2020-06-01</span><span><i
+                class="fas fa-music"></i> 13 Tracks</span></div>
+          <div class="highlight-track">Highlight: Likey</div>
+        </div>
+      </div>
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/2GKTroaa4ysyhEdvzpvUoM?utm_source=generator&theme=0" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Summer Nights</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-09-23</span><span><i
+                class="fas fa-music"></i> 9 Tracks</span></div>
+          <div class="highlight-track">Highlight: What is Love?</div>
+        </div>
+      </div>
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/72WWZVAx6GtSbEeGESwDLo?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>The Story Begins</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-10-20</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: Like Ooh-Ahh</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/575TQDOQqc0MAheeEeKWUR?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>With You-th</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: BLOOM</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/7hzP5i7StxYG4StECA0rrJ?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>READY TO BE</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2023-03-10</span><span><i
+                class="fas fa-music"></i> 7 Tracks</span></div>
+          <div class="highlight-track">Highlight: SET ME FREE</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/00vb6sViDbJLmLLchfbRh4?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Taste of Love</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: Alcohol-Free</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/3NQBPabmRm3LzVcmtkTLfo?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Feel Special</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 7 Tracks</span></div>
+          <div class="highlight-track">Highlight: Feel Special</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/6q2oUEqL9uzVXHCeKoA8JV?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>PAGE TWO</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: CHEER UP</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/5zQhaDNbiXHRqd8Y51I4vy?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Twicecoaster:Lane 1</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 7 Tracks</span></div>
+          <div class="highlight-track">Highlight: TT</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/28PwDunFAR71toOCTYRvkf?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Signal</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: SIGNAL</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/25VunQEW0x2W6ALND2Mh4g?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Yes or Yes</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 7 Tracks</span></div>
+          <div class="highlight-track">Highlight: Yes or Yes</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/0pzmyJftuTK7i4HLjnfq1n?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>The year of "YES"</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 9 Tracks</span></div>
+          <div class="highlight-track">Highlight: The Best Thing I Ever Did</div>
+        </div>
+      </div>
+
+
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/7H559hhWLuJbRWRJlQTFRG?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>#TWICE5 (Japanese ver.)</h3>
+          <div class="album-type">Mini Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 3 Tracks</span></div>
+          <div class="highlight-track">Highlight: Talk that Talk</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/3RU5xvGbTAXCWoUSqGf7dk?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>#TWICE</h3>
+          <div class="album-type">Mini Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 6 Tracks</span></div>
+          <div class="highlight-track">Highlight: Like OHH-AHH</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/2MwyDQhotK4B1WcZ5ogrtB?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>Fancy You</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 10 Tracks</span></div>
+          <div class="highlight-track">Highlight: Fake & True</div>
+        </div>
+      </div>
+      <div class="spotify-embed-container">
+        <div class="embed-wrapper">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/7tgTOUXm74GKA12wsQIUPu?utm_source=generator" width="100%"
+            height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="album-info">
+          <h3>DIVE</h3>
+          <div class="album-type">Studio Album</div>
+          <div class="album-details"><span><i class="fas fa-calendar-alt"></i> 2019-04-22</span><span><i
+                class="fas fa-music"></i> 20 Tracks</span></div>
+          <div class="highlight-track">Highlight:Beyond the Horizon</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="spotlight">
+    <div class="spotlight-container">
+      <div class="album-display">
+        <span class="spotlight-badge">ALBUM SPOTLIGHT</span>
+        <div class="album-cover-large">
+          <img src="./images/form-of-love.jpeg" alt="Formula of Love: O+T=<3 Cover">
+        </div>
+      </div>
+      <div class="album-info-spotlight">
+        <h2 class="spotlight-title">Formula of Love: O+T=&lt;3</h2>
+        <div class="album-subtitle">3rd Korean Studio Album • Released November 12, 2021</div>
+
+        <p class="spotlight-description">
+          TWICE's third Korean studio album became their most successful release to date, showcasing their musical
+          evolution with diverse genres including pop, R&B, and disco while maintaining their signature catchy hooks and
+          harmonies.
+        </p>
+
+        <div class="achievements">
+          <div class="achievement">
+            <i class="fas fa-trophy"></i>
+            <div class="achievement-text">
+              <h4>700,000+ Sales</h4>
+              <p>First week sales record</p>
+            </div>
+          </div>
+          <div class="achievement">
+            <i class="fas fa-chart-line"></i>
+            <div class="achievement-text">
+              <h4>Billboard #3</h4>
+              <p>World Albums Chart</p>
+            </div>
+          </div>
+          <div class="achievement">
+            <i class="fas fa-music"></i>
+            <div class="achievement-text">
+              <h4>5 Music Wins</h4>
+              <p>With title track "SCIENTIST"</p>
+            </div>
+          </div>
+          <div class="achievement">
+            <i class="fas fa-globe-asia"></i>
+            <div class="achievement-text">
+              <h4>Global Recognition</h4>
+              <p>Top 10 in 15 countries</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-cta">
+          <a href="#" class="cta-button cta-primary"><i class="fab fa-spotify"></i> Listen on Spotify</a>
+          <a href="#" class="cta-button cta-secondary"><i class="fas fa-shopping-cart"></i> Buy Album</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-about">
+        <div class="footer-logo">TWICE</div>
+        <p>TWICE is a South Korean girl group formed by JYP Entertainment. The group consists of nine members: Nayeon,
+          Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, and Tzuyu.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Discography</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Notice Dates</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Shipping Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Official Shop</h3>
+        <ul>
+          <li><a href="#">Albums</a></li>
+          <li><a href="#">Light Sticks</a></li>
+          <li><a href="#">Apparel</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Photocards</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 TWICE | JYP Entertainment. All rights reserved. This is a fan website for demonstration purposes
+        only.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

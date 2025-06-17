@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet TWICE Members</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Nunito:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --twice-pink: #FF9EB5;
+      --twice-apricot: #FFB6C1;
+      --twice-purple: #C9A0DC;
+      --twice-blue: #87CEEB;
+      --twice-yellow: #FFD700;
+      --twice-red: #FF6B6B;
+      --twice-green: #7EC8A0;
+      --twice-orange: #FFA07A;
+      --twice-violet: #B19CD9;
+      --twice-teal: #48D1CC;
+      --dark: #2a2a3c;
+      --light: #fff;
+      --gradient: linear-gradient(45deg, var(--twice-pink), var(--twice-purple));
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #fff5f9, #f8f8ff);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--twice-pink);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .logo i {
+      margin-right: 8px;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--twice-pink);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--twice-pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .page-title {
+      text-align: center;
+      padding: 4rem 5% 2rem;
+      background: var(--gradient);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-title::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,100 0,100" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: 100% 100%;
+    }
+
+    .page-title h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .page-title p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .member-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 2rem 5%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--twice-pink);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--twice-pink);
+      color: white;
+    }
+
+    .members-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .member-profile {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .member-profile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-header {
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .nav-links a.active {
+      color: var(--twice-pink);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .member-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      background: linear-gradient(45deg, #ffcce0, #c2e9fb);
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .member-info {
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .member-info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .position {
+      color: var(--twice-pink);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .member-details {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .detail-item {
+      text-align: center;
+    }
+
+    .detail-item i {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--twice-pink);
+    }
+
+    .detail-label {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .detail-value {
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .member-bio {
+      color: #555;
+      margin: 1rem 0;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      color: var(--twice-pink);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--twice-pink);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .member-quote {
+      font-style: italic;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 158, 181, 0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .member-quote::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      font-size: 3rem;
+      color: rgba(255, 158, 181, 0.2);
+      font-family: serif;
+    }
+
+    .fun-fact {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(201, 160, 220, 0.1);
+      border-radius: 10px;
+    }
+
+    .fun-fact i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--twice-purple);
+    }
+
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 5%;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--twice-pink);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: #bbb;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--twice-pink);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--twice-pink);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--twice-pink);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .page-title h1 {
+        font-size: 2.5rem;
+      }
+
+      .page-title p {
+        font-size: 1.1rem;
+      }
+
+      .members-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .member-image img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+      background: #f9f9f9;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="./images/twice-logo.png" alt="TWICE Logo" style="height: 45px; vertical-align: middle;">
+        TWICE </a>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./meet-members.html" class="active"> Members</a></li>
+        <li><a href="./discography.html">Music</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="https://twice.jype.com/Default/NoticeList" target="_blank">Notice</a></li>
+        <li><a href="https://twiceshop.com/?srsltid=AfmBOoqTMzqkKLvop_Xm_7tQmMkxGtJkuSpqqtOxCkkYXLDkxY2Kx0bJ"
+            target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-title">
+    <h1>Meet the Members</h1>
+    <p>Get to know each of the nine talented members that make up TWICE, the global K-pop sensation</p>
+  </section>
+
+  <div class="member-filter">
+    <button class="filter-btn active" data-filter="all">All Members</button>
+    <button class="filter-btn" data-filter="vocal">Vocalists</button>
+    <button class="filter-btn" data-filter="dance">Dancers</button>
+    <button class="filter-btn" data-filter="rap">Rappers</button>
+    <button class="filter-btn" data-filter="leader">Leader</button>
+  </div>
+
+  <div class="members-container">
+    <div class="member-profile" data-position="vocal">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-pink), var(--twice-red));">
+        <div class="member-image">
+          <img src="./images/TWICE_Nayeon_TWICE5_concept_photo_1.jpeg" alt="Nayeon">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Nayeon</h2>
+        <div class="position">Lead Vocalist, Center, Face of the Group</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Sep 22, 1995</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Korean</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Nayeon is the oldest member of TWICE. Known for her bright personality and bunny-like smile, she's often
+          called the "Vitamin" of the group.
+        </div>
+
+        <div class="member-quote">
+          "Giving up doesn't always mean losing"
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She is the TWICE member who trained for the longest time. She trained for 10 years.</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="vocal">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-green), var(--twice-teal));">
+        <div class="member-image">
+          <img src="./images/TWICE_Jeongyeon_TWICE5_concept_photo_1.jpeg" alt="Jeongyeon">
+
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Jeongyeon</h2>
+        <div class="position">Lead Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Nov 1, 1996</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Korean</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Yoo Jeongyeon is known for her powerful vocals. She often takes care of the members
+          like an older sister.
+        </div>
+
+        <div class="member-quote">
+          "You can be in the last place but still, have lots of fun. It's the process and the people you're with, not
+          the
+          destination."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>Her birth name is Yoo Kyungwan. She changed her name in 3rd grade, because she was teased as her name
+            sounded like a
+            boy’s name.</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="dance">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-purple), var(--twice-violet));">
+        <div class="member-image">
+          <img src="./images/TWICE_Momo_TWICE5_concept_photo_1.jpeg" alt="Momo">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Momo</h2>
+        <div class="position">Main Dancer, Sub-Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Nov 9, 1996</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Japanese</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Hirai Momo is widely recognized as one of the best dancers in K-pop. She joined TWICE after being eliminated
+          then brought back on Sixteen.
+        </div>
+
+        <div class="member-quote">
+          "If you keep going, anything is possible."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She was eliminated in ep 6 of SIXTEEN, but J.Y. Park decided to add her as a member of TWICE, because of
+            her dancing
+            skills.</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="vocal">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-yellow), var(--twice-orange));">
+        <div class="member-image">
+          <img src="./images/TWICE_Sana_TWICE5_concept_photo_1.jpeg" alt="Sana">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Sana</h2>
+        <div class="position">Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Dec 29, 1996</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Japanese</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Minatozaki Sana is known for her cute and bubbly personality. Her famous "Shy Shy Shy" line in CHEER UP made
+          her a viral sensation.
+        </div>
+
+        <div class="member-quote">
+          "Fighting. You said it's hard because you have a lot of worries, but you're already cheering up while
+          thinking, "How can
+          you solve them?" Don't be in a hurry, solve your problems one by one. From easy one"
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>Her hobbies are collecting perfumes and body mist</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="vocal,leader">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-blue), var(--twice-teal));">
+        <div class="member-image">
+          <img src="./images/TWICE_Jihyo_TWICE5_concept_photo_1.jpeg" alt="Jihyo">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Jihyo</h2>
+        <div class="position">Leader, Main Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Feb 1, 1997</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Korean</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Park Jihyo trained for 10 years before debuting with TWICE. As the leader, she's known for her powerful vocals
+          and responsible nature.
+        </div>
+
+        <div class="member-quote">
+          "When you face tough times, remember there are 9 people hoping for your happiness."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She is the TWICE member who trained for the longest time. She trained for 10 years</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="dance">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-apricot), var(--twice-pink));">
+        <div class="member-image">
+          <img src="./images/TWICE_Mina_TWICE5_concept_photo_1.jpeg" alt="Mina">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Mina</h2>
+        <div class="position">Main Dancer, Sub-Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Mar 24, 1997</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Japanese-American</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Myoui Mina is a former ballet dancer known for her elegant dance style and calm personality. Fans call her
+          "Black Swan" for her graceful moves.
+        </div>
+
+        <div class="member-quote">
+          "If you are who you are, you will surely succeed.."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She was born in San Antonio, Texas, USA</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="rap">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-yellow), var(--twice-green));">
+        <div class="member-image">
+          <img src="./images/TWICE_Dahyun_TWICE5_concept_photo_1.jpeg" alt="Dahyun">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Dahyun</h2>
+        <div class="position">Lead Rapper, Sub-Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">May 28, 1998</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Korean</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Kim Dahyun is known as the "mood maker" of TWICE. Her eagle dance went viral, and she's famous for her variety
+          skills and bright personality.
+        </div>
+
+        <div class="member-quote">
+          "You may fall, get hurt, or feel pain while running. However, it is part of the entire process to move forward
+          step by
+          step, so those who don't give up and run on will succeed, but if you're still having a hard time, encourage
+          yourself and
+          cheer up! cheer up!"
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>In middle school, she performed a solo in a youth dance festival and was scouted by JYP Entertainment
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="rap">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-orange), var(--twice-red));">
+        <div class="member-image">
+          <img src="./images/TWICE_Chaeyoung_TWICE5_concept_photo_1.jpeg" alt="Chaeyoung">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Chaeyoung</h2>
+        <div class="position">Main Rapper, Sub-Vocalist</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Apr 23, 1999</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Korean</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Son Chaeyoung is the main rapper of TWICE. She's also an accomplished artist who designs many of the group's
+          logos and merchandise.
+        </div>
+
+        <div class="member-quote">
+          "Everyone's happiness is very important. Take care of your happiness."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She is shy when singing in front of the other members even though her singing is as good as her rapping.
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-profile" data-position="vocal">
+      <div class="member-header" style="background: linear-gradient(135deg, var(--twice-blue), var(--twice-violet));">
+        <div class="member-image">
+          <img src="./images/TWICE_Tzuyu_TWICE5_concept_photo_1.jpeg" alt="Tzuyu">
+        </div>
+      </div>
+      <div class="member-info">
+        <h2>Tzuyu</h2>
+        <div class="position">Lead Dancer, Sub-Vocalist, Maknae</div>
+
+        <div class="member-details">
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div class="detail-label">Birthday</div>
+            <div class="detail-value">Jun 14, 1999</div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-flag"></i>
+            <div class="detail-label">Nationality</div>
+            <div class="detail-value">Taiwanese</div>
+          </div>
+        </div>
+
+        <div class="member-bio">
+          Chou Tzuyu is the youngest member of TWICE. Known for her stunning visuals, she was voted "Most Beautiful
+          Face" in 2019.
+        </div>
+
+        <div class="member-quote">
+          "It may take time, but I think that dreams do come true as long as you do your best."
+        </div>
+
+        <div class="fun-fact">
+          <i class="fas fa-lightbulb"></i>
+          <div>She was discovered by JYPE at the MUSE Performing Arts Workshop in Tainan in 2012, and she went to South
+            Korea on
+            November 15, 2012, to start her training</div>
+        </div>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-about">
+        <div class="footer-logo">TWICE</div>
+        <p>TWICE is a South Korean girl group formed by JYP Entertainment. The group consists of nine members: Nayeon,
+          Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, and Tzuyu.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Discography</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Notice Dates</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Shipping Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Official Shop</h3>
+        <ul>
+          <li><a href="#">Albums</a></li>
+          <li><a href="#">Light Sticks</a></li>
+          <li><a href="#">Apparel</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Photocards</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 TWICE | JYP Entertainment. All rights reserved. This is a fan website for demonstration purposes
+        only.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const memberProfiles = document.querySelectorAll('.member-profile');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(b => b.classList.remove('active'));
+
+          this.classList.add('active');
+
+          const filter = this.getAttribute('data-filter');
+
+          memberProfiles.forEach(profile => {
+            if (filter === 'all') {
+              profile.style.display = 'block';
+            } else {
+              const positions = profile.getAttribute('data-position').split(',');
+              if (positions.includes(filter)) {
+                profile.style.display = 'block';
+              } else {
+                profile.style.display = 'none';
+              }
+            }
+
+            if (profile.style.display === 'block') {
+              profile.style.animation = 'fadeIn 0.5s ease';
+            }
+          });
+        });
+      });
+
+      memberProfiles.forEach(profile => {
+        profile.addEventListener('mouseenter', () => {
+          profile.style.transform = 'translateY(-10px)';
+        });
+        profile.addEventListener('mouseleave', () => {
+          profile.style.transform = 'translateY(0)';
+        });
+      });
+
+      const style = document.createElement('style');
+      style.innerHTML = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+  `;
+      document.head.appendChild(style);
+    });
+  </script>
+</body>
+
+</html>
